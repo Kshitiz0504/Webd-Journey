@@ -1,47 +1,102 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+
 function App() {
-  return (
-    <div style={{backgroundColor: "#dfe6e9", height: "100vh"}}>
-      <ToggleMessage />
-      <Notifications />
-      </div>
-  )
-}
+  const[count, setCount] = useState(1);
 
+  function increaseCount() {
+    // setCount(function(currentValue) {
+    //   return currentValue + 1;
+    // });  
+    // or
 
-const ToggleMessage = () => {
-  const [isVisible, setIsVisible] = useState(false);   // defining a new state variable
-  // when the value of a state changes, 
-  // the component that uses the state variable re-renders
+    setCount(currentValue => currentValue + 1);
 
-  return (
-    <div>
-      <button onClick={() => setIsVisible(!isVisible)}>
-        Toggle Message
-      </button>
-      {isVisible && <p>This message is conditionally rendered!</p>}
-    </div>
-  );
-};
-
-
-const Notifications = () => {
-  let [notificationCount, setNotificationCount] = useState(0);
-
-  console.log("re-render");
-  function increment() {
-    setNotificationCount(notificationCount + 1);
   }
 
-  return(
-    <div>
-      <button onClick={increment}>
-        Notifications
-      </button>
-      {notificationCount}
+    useEffect(function() {
+      console.log("above setInterval")
+      setInterval(increaseCount, 1000);
+    }, [])
+
+    return <div>
+      {count}
     </div>
-  );
-};
+  }
+
+  export default App
+
+
+
+// import { useState } from "react"
+// import { PostComponent } from "./Post";
+
+// function App() {
+//   const [posts, setPosts] = useState([]);
+
+//   const postComponents = posts.map(post => <PostComponent
+//     name={post.name}
+//     subtitle={post.subtitle}
+//     time={post.time}
+//     image={post.image}
+//     description={post.description}
+//     />)
+
+//   function addPost() {
+//     setPosts([...posts, {
+//       name: "Harkirat",
+//       subtitle: "10000 followers",
+//       time: "2min ago",
+//       image: "https://appx-wsb-gcp-mcdn.akamai.net.in/subject/2023-01-17-0.17044360120951185.jpg",
+//       description: "Want to know how to win big? Check out how these folks won $6000 in bounties."
+//     }])
+//   }
+
+//   return (
+//     <div style={{backgroundColor: "#dfe6e9", height: "100vh"}}>
+//       <button onClick={addPost}>Add Post</button>
+//       <div style={{display: "flex", justifyContent: "center"}}>
+//         <div>
+//           {postComponents}
+//         </div>
+//       </div>
+//       </div>
+//   )
+// }
+
+
+// const ToggleMessage = () => {
+//   const [isVisible, setIsVisible] = useState(false);   // defining a new state variable
+//   // when the value of a state changes, 
+//   // the component that uses the state variable re-renders
+
+//   return (
+//     <div>
+//       <button onClick={() => setIsVisible(!isVisible)}>
+//         Toggle Message
+//       </button>
+//       {isVisible && <p>This message is conditionally rendered!</p>}
+//     </div>
+//   );
+// };
+
+
+// const Notifications = () => {
+//   let [notificationCount, setNotificationCount] = useState(0);
+
+//   console.log("re-render");
+//   function increment() {
+//     setNotificationCount(notificationCount + 1);
+//   }
+
+//   return(
+//     <div>
+//       <button onClick={increment}>
+//         Notifications
+//       </button>
+//       {notificationCount}
+//     </div>
+//   );
+// };
 
 // <div style={{display: "flex", justifyContent: "center"}}>
 // <div>
@@ -131,4 +186,4 @@ const Notifications = () => {
  
 // }
 
-export default App
+// export default App
