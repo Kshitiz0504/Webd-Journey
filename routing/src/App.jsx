@@ -7,7 +7,7 @@ function App() {
   return <div>
     <BrowserRouter>
       <Routes>
-        <Route path="/neet" element={<Layout />}>   // Layout one is the parent div in which other route are stored
+        <Route path="/" element={<Layout />}>   // Layout one is the parent div in which other route are stored
           <Route path="/neet/online-coaching-class-11" element={<Class11Program />} />
           <Route path="/neet/online-coaching-class-12" element={<Class12Program />} />
           <Route path="/neet/" element={<Landing />} />
