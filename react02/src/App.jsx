@@ -9,7 +9,7 @@
   // import './App.css'
 
   // function App() {
-  //   const inputRef = useRef();
+  //   const inputRef = useRef()  ;
 
   //   function focusOnInput() {
   //     // document.getElementById("name").focus();     // can be done by this also but DOM manipulation ni krna react use krna h 
