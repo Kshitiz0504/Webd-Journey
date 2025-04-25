@@ -83,9 +83,7 @@ function ProfileCard() {
         padding: 20,
       }}
     >
-      <div
-        style={{ display: "flex", justifyContent: "center", alignItems: "center" }}
-      >
+      <div style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
         <img
           src="https://appx-wsb-gcp-mcdn.akamai.net.in/subject/2023-01-17-0.17044360120951185.jpg"
           style={{
