@@ -102,7 +102,7 @@
 // export default App
 
 
-// Context API-> The context API is a powerful feature in React that enables you to manage state across your application more effectively, especially when dealing with deeply nested components. It provides a way to share values(state, functions, etc.) between components without having to pass down props manually at every level.
+// Context API  -> The context API is a powerful feature in React that enables you to manage state across your application more effectively, especially when dealing with deeply nested components. It provides a way to share values(state, functions, etc.) between components without having to pass down props manually at every level.
 
 import { useState, createContext, useContext } from 'react'
 import './App.css'
@@ -124,7 +124,7 @@ function App() {
 
   return <div>
     <BulbProvider>     
-      {/* // providing the value that you want the children to have */}
+      {/*  providing the value that you want the children to have */}
 
       <Light />
     </BulbProvider>
