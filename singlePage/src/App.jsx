@@ -60,10 +60,10 @@ function Layout() {
       </div>
       <div style={{padding:30}}>
         <img 
-        src="https://sdmntprsouthcentralus.oaiusercontent.com/files/00000000-2a10-61f7-a83f-34f480532c7e/raw?se=2025-04-22T14%3A01%3A29Z&sp=r&sv=2024-08-04&sr=b&scid=648bf808-c4a7-55ca-89d1-16162639fb85&skoid=365eb242-95ba-4335-a618-2c9f8f766a86&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2025-04-22T04%3A44%3A10Z&ske=2025-04-23T04%3A44%3A10Z&sks=b&skv=2024-08-04&sig=GUjrUx3ipfpn2XCOv8l91MYqNoCBuAbDZt9lMgc7WSM%3D"
+        src="https://res.cloudinary.com/dpzpn3dkw/image/upload/w_800,f_avif,q_auto/v1733911428/wpslqk3e1lpalk1hsqid.webp?_upload_ref=ic_img_tool&__ar__=1.78"
         style={{
-          width: 200,
-          height: 200,
+          width: 300,
+          height: 300,
           borderRadius: 20,
         }}
         />
@@ -77,7 +77,7 @@ function Layout() {
       <div style={{display: "flex", padding: 30, gap: 20}}>
        
         <img 
-        src="https://sdmntprwestus2.oaiusercontent.com/files/00000000-9dbc-61f8-ba91-97b40d299e61/raw?se=2025-04-22T13%3A24%3A13Z&sp=r&sv=2024-08-04&sr=b&scid=f25bd379-3c80-52eb-b42d-64b2975168a5&skoid=b53ae837-f585-4db7-b46f-2d0322fce5a9&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2025-04-22T04%3A33%3A17Z&ske=2025-04-23T04%3A33%3A17Z&sks=b&skv=2024-08-04&sig=%2BGfCpJl2RdLQYjifuA8cfNUlhC68RAXu5xZKfglV8fQ%3D"
+        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR2ZkRkyPk2h2-a81vkDetQU4ufVRAXlykZGA&s"
         style={{
           width: 250,
           height: 250,
@@ -86,7 +86,7 @@ function Layout() {
         />
         
         <img 
-        src="https://sdmntprwestus2.oaiusercontent.com/files/00000000-4e64-61f8-9ae2-f2d4cefbc116/raw?se=2025-04-22T13%3A29%3A44Z&sp=r&sv=2024-08-04&sr=b&scid=f8d94ba3-5a82-58ea-a422-de156f238732&skoid=b53ae837-f585-4db7-b46f-2d0322fce5a9&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2025-04-22T04%3A33%3A46Z&ske=2025-04-23T04%3A33%3A46Z&sks=b&skv=2024-08-04&sig=XEj9UG5IT%2BjNHegiDBcdQN/RVgYoDB30vyIo6Z4OUvM%3D"
+        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRdIQIRafxDTKOv1p2DRjutWcwmQdlrBcGrpg&s"
         style={{
           width: 250,
           height: 250,
@@ -94,7 +94,7 @@ function Layout() {
         }}
         />
         <img 
-        src="https://sdmntprwestus2.oaiusercontent.com/files/00000000-2eb4-61f8-85c4-2a11c1fcee99/raw?se=2025-04-22T13%3A31%3A42Z&sp=r&sv=2024-08-04&sr=b&scid=6a9e10ff-e200-5a44-a2a8-b07f473518e2&skoid=b53ae837-f585-4db7-b46f-2d0322fce5a9&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2025-04-22T04%3A30%3A07Z&ske=2025-04-23T04%3A30%3A07Z&sks=b&skv=2024-08-04&sig=m1ojsEnkgBL0VLGSU5scG1V32vAur4ZPED7Fx7NTRLA%3D"
+        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTgRrC33UejjnkUnAvHWm7p03koW5uBzuniVg&s"
         style={{
           width: 250,
           height: 250,
