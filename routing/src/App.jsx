@@ -20,7 +20,7 @@ function App() {
 }
 
 function Layout() {
-  return <div style={{height: "100vh"}}>
+  return <div style={{height: "100vh" }}>
     <Link to="/neet"> Allen </Link>
     |
     <Link to="/neet/online-coaching-class-11">Class 11</Link>
