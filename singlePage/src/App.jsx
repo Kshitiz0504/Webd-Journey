@@ -23,87 +23,134 @@ function App() {
 
 
 function Layout() {
-  return <div style={{backgroundColor: "#020024", color: "white", fontSize: 20}}>
-    <div style={{display: "flex", justifyContent: "space-around"}}>
-      <div style={{display: "flex", justifyContent: "left", gap: 20, color: "white", padding: 10}}>
-        <Link to="/allen.in"> <b>Allen</b> </Link>
+
+
+  return <div style={{backgroundColor: "#020024", color: "white", fontSize: 15}}>
+    <div style={{display: "flex", justifyContent: "space-around", flexWrap: "wrap"}}>
+      <div style={{display: "flex", justifyContent: "left", gap: 20, color: "white", padding: 10, textDecoration:"none", flexWrap: "wrap"}}>
+        <Link to="/allen.in" style={{textDecoration:"none", color:"white"}}> <b>Allen</b> </Link>
         
-        <Link to="/allen.in/courses"> Courses</Link>
+        <Link to="/allen.in/courses" style={{textDecoration:"none", color:"white"}}> Courses</Link>
         
-        <Link to="/allen.in/online-test-series"> Test Series</Link>
+        <Link to="/allen.in/online-test-series" style={{textDecoration:"none", color:"white"}}> Test Series</Link>
         
-        <Link to="/allen.in/results-2025"> Results</Link>
+        <Link to="/allen.in/results-2025" style={{textDecoration:"none", color:"white"}}> Results</Link>
         
-        <Link to="/allen.in/study-materials"> Study Materials</Link>
-        
-        <Link to="/allen.in/more"> More</Link>
+        <Link to="/allen.in/study-materials" style={{textDecoration:"none", color:"white"}}> Study Materials</Link>
+      
+        <Link to="/allen.in/more" style={{textDecoration:"none", color:"white"}}> More</Link>
       </div>
-        <div style={{display: "flex", justifyContent: "end", gap: 30, padding: 10}}>
-          <Link to="/allen.in/home-demo"> Talk to Us</Link>
-          <Link to="/allen.in/login"> Login</Link>
+        <div style={{display: "flex", justifyContent: "end", gap: 40, padding: 10, flexWrap: "wrap"}}>
+          <Link to="/allen.in/home-demo" style={{textDecoration:"none", color:"white"}}> Talk to Us</Link>
+          <Link to="/allen.in/login" style={{textDecoration:"none", color:"white"}}> Login</Link>
         </div>
     </div>
   
     
-    <div style={{display: "flex", color: "white", padding: 10}}>
-      <Outlet />
-      <div style={{display:'flex', flexDirection: "column", justifyContent: "left", padding: 20}}>
-        Home  - Online Programs
-        <br />
-        <h2>Online Programs</h2>
-        <div style={{fontSize:15, textAlign: 'left'}}>
-        <p>
-          To get the full Allen learning Experience, explore the Ultimate Series of Programs for JEE, NEET and Olympiads. The ultimate Programs are Allen Recommended. They provide a fully structured curriculum with a week-by-week plan and foster meaningful teacher-student inteeractions. These programs odder a personalized study experience,guiding you throughout your journey on where to concentrate your efforts. 
-        </p>
-        </div>
-        
-      </div>
-      <div style={{padding:30}}>
-        <img 
-        src="https://res.cloudinary.com/dpzpn3dkw/image/upload/w_800,f_avif,q_auto/v1733911428/wpslqk3e1lpalk1hsqid.webp?_upload_ref=ic_img_tool&__ar__=1.78"
-        style={{
-          width: 300,
-          height: 300,
-          borderRadius: 20,
-        }}
-        />
-        </div>
+    <div style={{
+      display: "flex",
+      flexWrap: "wrap",
+      color: "white",
+      padding: 10,
+      justifyContent: "center",
+      gap: 20,
+    }}>
+
+  <div style={{
+    display:'flex', 
+    flexDirection: "column", 
+    justifyContent: "flex-start", 
+    padding: 20, 
+    maxWidth: 500,
+    flex: "1 1 300px",
+  }}>
+    <div>Home - Online Programs</div>
+    <h2>Online Programs</h2>
+    <p style={{fontSize: 15, textAlign: 'left'}}>
+      To get the full Allen learning Experience, explore the Ultimate Series of Programs for JEE, NEET, and Olympiads...
+    </p>
+  </div>
+
+  <div style={{
+    padding: 20,
+    maxWidth: 400,
+    flex: "1 1 300px",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+  }}>
+    <img 
+      src="https://res.cloudinary.com/dpzpn3dkw/image/upload/w_800,f_avif,q_auto/v1733911428/wpslqk3e1lpalk1hsqid.webp?_upload_ref=ic_img_tool&__ar__=1.78"
+      style={{
+        width: "100%",
+        maxWidth: "300px",
+        height: "auto",
+        borderRadius: 20,
+      }}
+      alt="Online Programs"
+    />
+  </div>
+
+</div>
+
+
+
+    <div style={{ 
+      display: "flex", 
+      flexWrap: "wrap", 
+      gap: 20, 
+      justifyContent: "center", 
+      alignItems: "center", 
+      padding: 30 
+    }}>
+      <div>
+      <p>Discover the perfect Online Learning Platform </p>
+
       
-    </div>
-    <div style={{color: "white", display: "flex", flexDirection: "column", justifyContent: "left", marginLeft: 50}}>
-      <h3>
-        Discover the perfect online programs
-      </h3>
-      <div style={{display: "flex", padding: 30, gap: 20}}>
-       
-        <img 
+    <div style={{display: "flex", flexDirection: "row", gap: 20}}>
+    <div style={{ maxWidth: 250, width: "100%", textAlign: "center" }}>
+      JEE <br />
+      <img 
         src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR2ZkRkyPk2h2-a81vkDetQU4ufVRAXlykZGA&s"
         style={{
-          width: 250,
-          height: 250,
-          borderRadius: 20
-        }}
-        />
-        
-        <img 
-        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRdIQIRafxDTKOv1p2DRjutWcwmQdlrBcGrpg&s"
-        style={{
-          width: 250,
-          height: 250,
-          borderRadius: 20
-        }}
-        />
-        <img 
-        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTgRrC33UejjnkUnAvHWm7p03koW5uBzuniVg&s"
-        style={{
-          width: 250,
-          height: 250,
+          width: "100%",
+          height: 200,
           borderRadius: 20,
         }}
-        />
-        </div>
-
+        alt="JEE"
+      />
     </div>
+
+    <div style={{ maxWidth: 250, width: "100%", textAlign: "center" }}>
+      NEET <br />
+      <img 
+        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRdIQIRafxDTKOv1p2DRjutWcwmQdlrBcGrpg&s"
+        style={{
+          width: "100%",
+          height: 200,
+          borderRadius: 20,
+        }}
+        alt="NEET"
+      />
+    </div>
+
+    <div style={{ maxWidth: 250, width: "100%", textAlign: "center" }}>
+      6-10 <br />
+      <img 
+        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTgRrC33UejjnkUnAvHWm7p03koW5uBzuniVg&s"
+        style={{
+          width: "100%",
+          height: 200,
+          borderRadius: 20,
+        }}
+        alt="6-10"
+      />
+    </div>
+    </div>
+    </div>
+
+  </div>
+
     
   </div>
 
@@ -112,52 +159,56 @@ function Layout() {
 
 
 function LandingPage() {
-  return <div style={{backgroundColor: "white"}}>
-    Welcome To Allen!!
+  return <div style={{backgroundColor: "#020024", color: "white", height: "100vh", padding: 10}}>
+   
+      Welcome To Allen!!
+    
   </div>
 }
 function Courses() {
-  return <div>
+  return <div style={{backgroundColor: "#020024", color: "white", height: "100vh", padding: 10}}>
     <ul>
       <li>JEE</li>
       <li>NEET</li>
-      <li>CLass 10</li>
+      <li>Class 10</li>
       <li>Class 12</li>
     </ul>
   </div>
 }
 function TestSeries() {
-  return <div>
+  return <div style={{backgroundColor: "#020024", color: "white", height: "100vh", padding: 10}}>
     Search for your required test series
   </div>
 }
 function Results() {
-  return <div>
+  return <div style={{backgroundColor: "#020024", color: "white", height: "100vh", padding: 10}}>
     Here's your Performance analysis! Best of Luck
   </div>
 }
 function StudyMaterial() {
-  return <div>
+  return <div style={{backgroundColor: "#020024", color: "white", height: "100vh", padding: 10}}>
     Use best resources for better results
   </div>
 } 
 function More() {
-  return <div>
+  return <div style={{backgroundColor: "#020024", color: "white", height: "100vh", padding: 10}}>
     More
   </div>
 }
 function TalkToUs() {
-  return <div>
+  return <div style={{backgroundColor: "#020024", color: "white", height: "100vh", padding: 10}}>
     Contact info of some of the Allen employees
   </div>
 }
 function Login() {
-  return <div>
-    <button input="text">Login</button>
+  return <div style={{backgroundColor: "#020024", color: "white", height: "100vh", padding: 10, display: "flex", flexDirection: "column", gap: 20}}>
+    Sign Up <br/>
+    Login <br />
+    
   </div>
 }
 function ErrorPage() {
-  return<div>
+  return<div style={{backgroundColor: "#020024", color: "white", height: "100vh", padding: 10}}>
     Error while loading
   </div>
 }
