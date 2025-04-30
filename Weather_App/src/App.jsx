@@ -33,12 +33,20 @@ function App() {
 
 
   return (
-    <div style={{
-
-      backgroundColor:" #1E1F2F",
-      color: "white",
-      height: "100 vh",
+    <div 
+    style={{
+      backgroundImage: 'url("https://github.com/Gaurav-99/Weather-Mini/blob/main/public/img/weatherbg.jpg?raw=true")',
+      backgroundSize: 'cover',
+      backgroundPosition: 'center',
+      backgroundRepeat: 'no-repeat',
+      height: '100vh',
+      color: 'white',
       padding: 10,
+      opacity: 50
+      // backgroundColor:" #1E1F2F",
+      // color: "white",
+      // height: "100vh",
+      // padding: 10,
     }}>
 
     <h1 style={{
@@ -46,6 +54,7 @@ function App() {
       justifyContent: "center",
       alignItems: "center",
       textAlign: "center",
+      color: "black",
       fontFamily: "Alumni Sans Pinstripe, sans-serif",
       fontWeight: 600,
       fontSize: 60
@@ -64,7 +73,7 @@ function App() {
         justifyContent: "center",
         alignItems: "center", 
       }}>
-
+{/* 
         <div>
           <img src="https://github.com/Gaurav-99/Weather-Mini/blob/main/public/img/weatherbg.jpg?raw=true" style={{
             display: 'flex',
@@ -77,11 +86,11 @@ function App() {
             opacity: 0.5
           }} 
           />
-        </div>
+        </div> */}
       </div>
 
 <main style={{ 
-  backgroundColor: " #1E1F2F",
+  // backgroundColor: " #1E1F2F",
   display: "flex",
   flexDirection: "row",
   justifyContent: "space-around",
