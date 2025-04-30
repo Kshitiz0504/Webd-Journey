@@ -50,7 +50,7 @@ function App() {
         display: "flex",
         gap: 10,
         flexDirection: "column",
-        flexWrap: "wrap",
+        // flexWrap: "wrap",
         justifyContent: "center",
         alignItems: "center",
         
@@ -88,6 +88,8 @@ function App() {
             <h2>{weatherData.name}</h2>
             <p>Temperature: {weatherData.main.temp}°C</p>
             <p>Weather: {weatherData.weather[0].description}</p>
+            <p>Visibility: {weatherData.visibility}</p>
+            <p>Wind: {weatherData.wind[0]}</p>
           </div>
         )}
         {error && <p style={{ color: 'red' }}> Error: {error.message} </p>}
@@ -98,9 +100,9 @@ function App() {
     <div style={{
       color: "red",
       fontFamily: "monospace",
-      display: "flex",
-      flexDirection: "row",
-      flexWrap: "wrap",
+      // display: "flex",
+      // flexDirection: "row",
+      // flexWrap: "wrap",
       gap: 10,
       padding: 40,
       justifyContent: "center",
@@ -128,7 +130,7 @@ function App() {
           color: "red",
           fontFamily: "monospace",
           display: "flex",
-          flexDirection: "row",
+          // flexDirection: "row",
           }}>Search</button>
       </form>
     </div>
