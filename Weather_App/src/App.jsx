@@ -2,6 +2,8 @@ import { useState } from 'react'
 
 import './App.css'
 
+
+
 function App() {
   const [city, setCity] = useState('');
   const [weatherData, setWeatherData] = useState(null);
@@ -32,108 +34,153 @@ function App() {
 
   return (
     <div style={{
-      backgroundColor: "#03011C",
+
+      backgroundColor:" #1E1F2F",
       color: "white",
-      height: "100vh",
+      height: "100 vh",
+      padding: 10,
+    }}>
+
+    <h1 style={{
       display: "flex",
-      flexDirection: "column",
       justifyContent: "center",
       alignItems: "center",
-      flexWrap: "wrap",
-      
-    
-    }}>
-      <div style={{
-        fontSize: 40,
-        fontFamily: "fantasy",
-        padding: 20,
-        display: "flex",
-        gap: 10,
-        flexDirection: "column",
-        // flexWrap: "wrap",
-        justifyContent: "center",
-        alignItems: "center",
+      textAlign: "center",
+      fontFamily: "Alumni Sans Pinstripe, sans-serif",
+      fontWeight: 600,
+      fontSize: 60
+      }}>
         
+      Weather Forecast
+
+      </h1>
+     
+
+      <div style={{  
+        padding: 10,
+        display: "flex",
+        flexDirection: "column",
+        flexWrap: "wrap",
+        justifyContent: "center",
+        alignItems: "center", 
       }}>
 
         <div>
-          <img src="https://media.istockphoto.com/id/482423958/video/weather-icon-set-animation.jpg?s=640x640&k=20&c=GG-ga-WFpr8D-uPnuJYOnHTGa7TcH3RHWZoDpCTUWfI=" 
-          style={{
+          <img src="https://github.com/Gaurav-99/Weather-Mini/blob/main/public/img/weatherbg.jpg?raw=true" style={{
             display: 'flex',
-            flexDirection: "row",
+            flexDirection: "column",
             justifyContent: "center",
             alignItems: "center",
-            padding: 10,
-            height: 150,
-            width: 250
+            padding: 5,
+            height: 300,
+            width: 400,
+            opacity: 0.5
           }} 
           />
         </div>
-
-        Weather App
-
-
       </div>
 
-      <div style={{
-        display: "flex",
-        flexDirection: "row",
-        padding: 10,
-        flexWrap: "wrap",
-      }}>
+<main style={{ 
+  backgroundColor: " #1E1F2F",
+  display: "flex",
+  flexDirection: "row",
+  justifyContent: "space-around",
+  fontSize: 15,
+  textAlign: "center",
+}}>
 
-       <main style={{ marginTop: 20 }}>
-        {weatherData && (
-          <div>
-            <h2>{weatherData.name}</h2>
-            <p>Temperature: {weatherData.main.temp}°C</p>
-            <p>Weather: {weatherData.weather[0].description}</p>
-            <p>Visibility: {weatherData.visibility}</p>
-            <p>Wind: {weatherData.wind[0]}</p>
-          </div>
-        )}
-        {error && <p style={{ color: 'red' }}> Error: {error.message} </p>}
-      </main>
-    </div>
-
-
-    <div style={{
-      color: "red",
-      fontFamily: "monospace",
-      // display: "flex",
-      // flexDirection: "row",
-      // flexWrap: "wrap",
-      gap: 10,
-      padding: 40,
-      justifyContent: "center",
-      alignItems: "center"
+  <div style={{
+    color: "white",
+    display: "flex",
+    flexDirection: "row",
+    flexWrap: "wrap",
+    fontFamily: "Alumni Sans Pinstripe, sans-serif",
+    fontWeight: 1000,
+    fontStyle: "bold",
+    textAlign: "center",
+    gap: 10,
+    padding: 10,
+    justifyContent: "center",
+    alignItems: "center"
+  }}>
       
-    }}>
-      <form onSubmit={(e) => { e.preventDefault(); fetchWeather(); }} >
-        <label htmlFor="city" style={{
-          
-        }}> Enter Your City </label>
+    <form onSubmit={(e) => { e.preventDefault(); fetchWeather(); }} >
+      <label htmlFor="city" style={{ 
+        color: "white",
+        fontFamily: "Alumni Sans Pinstripe, sans-serif",
+        fontSize: 30,
+        fontWeight: 1000,
+        fontStyle: "bold",
+        padding: 7
+      }}> Enter Your City:  </label>
+
         <input style={{
-          backgroundColor: "#DB2525",
-          color: "black",
-          fontFamily: "monospace",
-          fontSize: 10, 
-          padding: 7
+          height: 40,
+          fontFamily: "Alumni Sans Pinstripe, sans-serif",
+          textAlign: "center",
+          fontSize: 20,
+          height: 40,
+          weight: 40,
+          fontWeight: 1000,
+          fontStyle: "bold", 
+          padding: 7,
+          borderRadius: 10,
+          backgroundColor: "#F2F4F8",
+          border: "1px solid #20C997", 
+          color: "#1E1F2F",          
+                      
         }}
+
           type="search"
           name="city"
           value={city}
           onChange={(e) => setCity(e.target.value)}
         />
+
         <button type="submit"
         style={{
-          color: "red",
-          fontFamily: "monospace",
+          backgroundColor: "#00BFFF", 
+          color: "#FFFFFF",         
+          border: "none",           
+          height: 40,
+          weight: 40,
           display: "flex",
-          // flexDirection: "row",
-          }}>Search</button>
+          fontFamily: "Alumni Sans Pinstripe, sans-serif",
+          fontStyle: "bold",
+          fontWeight: 1000,
+          fontSize: 20,
+          textAlign: "center",
+          padding: 10,
+          borderRadius: 15,
+          opacity: 15
+          }}> Get Your Weather </button>
       </form>
     </div>
+
+        {weatherData && (
+          <div style={{
+            color: "#1E1F2F",
+            padding: 20,
+            fontFamily: "Kalam, cursive",
+            textAlign: "center",
+            lineHeight: 1.8,
+          }}>
+
+            <h1 style={{ color: "#00BFFF" }}>{weatherData.name}</h1>
+            <p style={{ color: "#FFB347" }}>Temperature: {weatherData.main.temp}°C</p>
+            <p style={{ color: "#20C997" }}>Weather: {weatherData.weather[0].description}</p>
+            <p style={{ color: "#FFFFFF" }}>Visibility: {weatherData.visibility}</p>
+            <p style={{ color: "#A4D4AE" }}>Humidity: {weatherData.main.humidity}</p>
+            <p style={{ color: "#D3D3D3" }}>Pressure: {weatherData.main.pressure}</p>
+            
+          </div>
+          
+        )}
+        {error && <p style={{ color: '#FF6B6B', fontSize: 25 }}> Error: {error.message} </p>}
+
+        
+      </main>
+
   </div>
     
   )
