@@ -103,6 +103,8 @@ function App() {
       // display: "flex",
       // flexDirection: "row",
       // flexWrap: "wrap",
+
+      
       gap: 10,
       padding: 40,
       justifyContent: "center",
