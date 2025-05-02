@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 
 import './App.css'
 
@@ -8,6 +8,11 @@ function App() {
   const [city, setCity] = useState('');
   const [weatherData, setWeatherData] = useState(null);
   const[error, setError] = useState(null);
+
+  useEffect(() => {
+    fetchWeather();
+  }, []);
+
 
   const fetchWeather = () => {
     const API_KEY = '82a11b043c133b03bed02933c669fa91';
@@ -33,22 +38,34 @@ function App() {
 
 
   return (
-    <div 
-    style={{
+    <>
+    <div style={{
       backgroundImage: 'url("https://github.com/Gaurav-99/Weather-Mini/blob/main/public/img/weatherbg.jpg?raw=true")',
       backgroundSize: 'cover',
       backgroundPosition: 'center',
       backgroundRepeat: 'no-repeat',
       height: '100vh',
+      width: "100vw",
+      position: "absolute",
       color: 'white',
       padding: 10,
-      opacity: 50
-      // backgroundColor:" #1E1F2F",
-      // color: "white",
-      // height: "100vh",
-      // padding: 10,
+      opacity: 50,
+      zIndex: -1,
+      filter: "blur(2px)"
     }}>
 
+    </div>
+    
+<div style={{
+  display: "flex",
+  flexDirection: "column",
+  justifyContent: "center",
+  alignItems: "center",
+  padding: 20,
+  height: "100%",
+  width: "100%",
+
+}}>
     <h1 style={{
       display: "flex",
       justifyContent: "center",
@@ -73,24 +90,10 @@ function App() {
         justifyContent: "center",
         alignItems: "center", 
       }}>
-{/* 
-        <div>
-          <img src="https://github.com/Gaurav-99/Weather-Mini/blob/main/public/img/weatherbg.jpg?raw=true" style={{
-            display: 'flex',
-            flexDirection: "column",
-            justifyContent: "center",
-            alignItems: "center",
-            padding: 5,
-            height: 300,
-            width: 400,
-            opacity: 0.5
-          }} 
-          />
-        </div> */}
+
       </div>
 
 <main style={{ 
-  // backgroundColor: " #1E1F2F",
   display: "flex",
   flexDirection: "row",
   justifyContent: "space-around",
@@ -115,7 +118,7 @@ function App() {
       
     <form onSubmit={(e) => { e.preventDefault(); fetchWeather(); }} >
       <label htmlFor="city" style={{ 
-        color: "white",
+        color: "black",
         fontFamily: "Alumni Sans Pinstripe, sans-serif",
         fontSize: 30,
         fontWeight: 1000,
@@ -170,12 +173,13 @@ function App() {
           <div style={{
             color: "#1E1F2F",
             padding: 20,
-            fontFamily: "Kalam, cursive",
+            fontWeight: 1000,
+            fontFamily: "Alumni Sans Pinstripe, sans-serif",
             textAlign: "center",
             lineHeight: 1.8,
           }}>
 
-            <h1 style={{ color: "#00BFFF" }}>{weatherData.name}</h1>
+            <h1 style={{ color: "#00BFFF", fontSize: 40 }}> {weatherData.name}  </h1>
             <p style={{ color: "#FFB347" }}>Temperature: {weatherData.main.temp}°C</p>
             <p style={{ color: "#20C997" }}>Weather: {weatherData.weather[0].description}</p>
             <p style={{ color: "#FFFFFF" }}>Visibility: {weatherData.visibility}</p>
@@ -189,8 +193,9 @@ function App() {
 
         
       </main>
+      </div>
 
-  </div>
+      </>
     
   )
 }
