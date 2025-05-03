@@ -20,7 +20,7 @@ function App() {
   const Weather = () => {
     if (!weatherData) return null;
   
-    const weatherCondition = weatherData.weather[0].main.toLowerCase();
+    const weatherCondition = weatherData.weather[0].description.toLowerCase();
   
     return (
       <div>
@@ -59,35 +59,32 @@ function App() {
   };
 
 
-  const weatherImages = {
-    clear: 'path/to/clear-image.png', height: 10,
-    rain: 'path/to/rain-image.png',
-    overcastclouds: 'path/to/overcastclouds-image.png',
-    brokenclouds: 'path/to/brokenclouds-image.png',
-    fewclouds: 'path/to/fewclouds-image.png',
-    scatteredclouds: 'path/to/scatteredclouds-image.png',
-    mist: 'path/to/mist-image.png',
-    showerrain: 'path/to/showerrain-image.png',
-    thunderstorm: 'path/to/thunderstorm-image.png',
-  };
+  // const weatherImages = {
+  //   clearsky2: 'path/to/clearsky2-image.png',
+  //   rain: 'path/to/rain-image.png',
+  //   overcastclouds: 'path/to/overcastclouds-image.g',
+  //   brokenclouds: 'path/to/brokenclouds-image.png',
+  //   fewclouds: 'path/to/fewclouds-image.png',
+  //   scatteredclouds: 'path/to/scatteredClouds-image.png',
+  //   mist: 'path/to/mist-image.png',
+  //   showerrain: 'path/to/showerrain-image.png',
+  //   thunderstorm: 'path/to/thunderstorm-image.png',
+  // };
   
   const WeatherImage = ({ weatherCondition }) => {
-    
-    
-   const weatherType = weatherData.weather[0].main.toLowerCase() //clear
+    const weatherType = weatherCondition.toLowerCase().replace(/\s/g, '');
     const imagePath = weatherToImg[weatherType];
-
-    console.log(weatherType)
-   
   
-    
     return (
       <div>
-        {imagePath && <img src={imagePath} alt={weatherCondition} height="100px" width="150px" />}
+        {imagePath ? (
+          <img src={imagePath} height="100px" width="150px" />
+        ) : (
+          <p style= {{fontSize: 20}}>No image available</p>
+        )}
       </div>
     );
   };
-
 
   return (
     <>
@@ -243,16 +240,16 @@ function App() {
             lineHeight: 1.8,
           }}>
 
-            <h1 style={{ color: "#00BFFF", fontSize: 40 }}> {weatherData.name}  </h1>
-            <p style={{ color: "#000000", fontSize: 25}}>Temperature: {weatherData.main.temp}°C</p>
-            <p style={{ color:" #FFB347", fontSize: 25 }}>Visibility: {weatherData.visibility}</p>
-            <p style={{ color: "#A4D4AE", fontSize: 25 }}>Humidity: {weatherData.main.humidity}</p>
-            <p style={{ color: "#D3D3D3", fontSize: 25 }}>Pressure: {weatherData.main.pressure}</p>
-            <p style={{ color: "#FFFFFF", fontSize: 25 }}>Country: {weatherData.sys.country}</p>
+            <h1 style={{ color: "#00BFFF", fontSize: 40, fontstyle: "bold" }}> {weatherData.name}  </h1>
+            <p style={{ color: "#000000", fontSize: 25, fontstyle: "bold"}}>Temperature: {weatherData.main.temp}°C</p>
+            <p style={{ color:" #FFB347", fontSize: 25, fontstyle: "bold" }}>Visibility: {weatherData.visibility}</p>
+            <p style={{ color: "#A4D4AE", fontSize: 25, fontstyle: "bold" }}>Humidity: {weatherData.main.humidity}</p>
+            <p style={{ color: "#D3D3D3", fontSize: 25, fontstyle: "bold" }}>Pressure: {weatherData.main.pressure}</p>
+            <p style={{ color: "#FFFFFF", fontSize: 25, fontstyle: "bold" }}>Country: {weatherData.sys.country}</p>
               
-            <WeatherImage weatherCondition={weatherData.weather[0].main.toLowerCase()}/>
+            <WeatherImage weatherCondition={weatherData.weather[0].description.toLowerCase()}/>
 
-            <p style={{ color: "#20C997", fontSize: 25 }}>Weather: {weatherData.weather[0].description}</p>
+            <p style={{ color: "#20C997", fontSize: 25, fontStyle: "bold" }}>Weather: {weatherData.weather[0].description}</p>
             </div>
           
         )}
