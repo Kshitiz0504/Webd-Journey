@@ -1,16 +1,38 @@
 import { useState, useEffect } from 'react'
 
 import './App.css'
+import { weatherToImg } from './WeatherImage';
+
+
+
 
 
 
 function App() {
+
   const [city, setCity] = useState('');
   const [weatherData, setWeatherData] = useState(null);
   const[error, setError] = useState(null);
 
+  
+  
+
+  const Weather = () => {
+    if (!weatherData) return null;
+  
+    const weatherCondition = weatherData.weather[0].main.toLowerCase();
+  
+    return (
+      <div>
+        <h1>Current Weather: {weatherCondition}</h1>
+        <WeatherImage weatherCondition={weatherCondition} />
+      </div>
+    );
+  };
+
   useEffect(() => {
     fetchWeather();
+    console.log(weatherToImg)
   }, []);
 
 
@@ -37,6 +59,36 @@ function App() {
   };
 
 
+  const weatherImages = {
+    clear: 'path/to/clear-image.png', height: 10,
+    rain: 'path/to/rain-image.png',
+    overcastclouds: 'path/to/overcastclouds-image.png',
+    brokenclouds: 'path/to/brokenclouds-image.png',
+    fewclouds: 'path/to/fewclouds-image.png',
+    scatteredclouds: 'path/to/scatteredclouds-image.png',
+    mist: 'path/to/mist-image.png',
+    showerrain: 'path/to/showerrain-image.png',
+    thunderstorm: 'path/to/thunderstorm-image.png',
+  };
+  
+  const WeatherImage = ({ weatherCondition }) => {
+    
+    
+   const weatherType = weatherData.weather[0].main.toLowerCase() //clear
+    const imagePath = weatherToImg[weatherType];
+
+    console.log(weatherType)
+   
+  
+    
+    return (
+      <div>
+        {imagePath && <img src={imagePath} alt={weatherCondition} height="100px" width="150px" />}
+      </div>
+    );
+  };
+
+
   return (
     <>
     <div style={{
@@ -47,11 +99,11 @@ function App() {
       height: '100vh',
       width: "100vw",
       position: "absolute",
-      color: 'white',
-      padding: 10,
+      flexWrap: "wrap",
+      padding: 20,
       opacity: 50,
       zIndex: -1,
-      filter: "blur(2px)"
+      filter: "blur(1px)"
     }}>
 
     </div>
@@ -61,48 +113,56 @@ function App() {
   flexDirection: "column",
   justifyContent: "center",
   alignItems: "center",
-  padding: 20,
+  flexWrap: "wrap",
+  padding: 5,
   height: "100%",
   width: "100%",
 
 }}>
+  
     <h1 style={{
       display: "flex",
       justifyContent: "center",
       alignItems: "center",
+      flexWrap: "wrap",
+      height: "100%",
+      width: "100%",
       textAlign: "center",
       color: "black",
       fontFamily: "Alumni Sans Pinstripe, sans-serif",
-      fontWeight: 600,
-      fontSize: 60
+      fontWeight: 800,
+      fontSize: 60,
+      paddingTop: 20,
       }}>
         
       Weather Forecast
 
       </h1>
-     
 
       <div style={{  
-        padding: 10,
+        paddingTop: 20,
         display: "flex",
         flexDirection: "column",
         flexWrap: "wrap",
-        justifyContent: "center",
-        alignItems: "center", 
+        justifyContent: "space-around",
+        height: "100%",
+        width: "100%",
       }}>
 
-      </div>
+      
 
 <main style={{ 
   display: "flex",
   flexDirection: "row",
   justifyContent: "space-around",
-  fontSize: 15,
+  flexWrap: "wrap",
+  fontSize: 50,
   textAlign: "center",
+  height: "100%",
+  width: "100%"
 }}>
 
   <div style={{
-    color: "white",
     display: "flex",
     flexDirection: "row",
     flexWrap: "wrap",
@@ -110,31 +170,37 @@ function App() {
     fontWeight: 1000,
     fontStyle: "bold",
     textAlign: "center",
-    gap: 10,
+    gap: 60,
     padding: 10,
     justifyContent: "center",
     alignItems: "center"
   }}>
       
-    <form onSubmit={(e) => { e.preventDefault(); fetchWeather(); }} >
+    <form onSubmit={(e) => { e.preventDefault(); fetchWeather(); }} style={{
+      display: "flex",
+      gap: 10
+    }}>
       <label htmlFor="city" style={{ 
         color: "black",
         fontFamily: "Alumni Sans Pinstripe, sans-serif",
-        fontSize: 30,
+        fontSize: 50,
         fontWeight: 1000,
         fontStyle: "bold",
         padding: 7
-      }}> Enter Your City:  </label>
+      }}></label>
 
         <input style={{
-          height: 40,
           fontFamily: "Alumni Sans Pinstripe, sans-serif",
           textAlign: "center",
-          fontSize: 20,
-          height: 40,
+          fontSize: 30,
+          height: 70,
           weight: 40,
           fontWeight: 1000,
-          fontStyle: "bold", 
+          fontStyle: "bold",
+          display: "flex",
+          flexDirection: "row",
+          justifyContent: "center",
+          alignItems: "center", 
           padding: 7,
           borderRadius: 10,
           backgroundColor: "#F2F4F8",
@@ -142,7 +208,7 @@ function App() {
           color: "#1E1F2F",          
                       
         }}
-
+          placeholder='Enter Your City'
           type="search"
           name="city"
           value={city}
@@ -154,9 +220,8 @@ function App() {
           backgroundColor: "#00BFFF", 
           color: "#FFFFFF",         
           border: "none",           
-          height: 40,
+          height: 70,
           weight: 40,
-          display: "flex",
           fontFamily: "Alumni Sans Pinstripe, sans-serif",
           fontStyle: "bold",
           fontWeight: 1000,
@@ -164,7 +229,6 @@ function App() {
           textAlign: "center",
           padding: 10,
           borderRadius: 15,
-          opacity: 15
           }}> Get Your Weather </button>
       </form>
     </div>
@@ -180,19 +244,23 @@ function App() {
           }}>
 
             <h1 style={{ color: "#00BFFF", fontSize: 40 }}> {weatherData.name}  </h1>
-            <p style={{ color: "#FFB347" }}>Temperature: {weatherData.main.temp}°C</p>
-            <p style={{ color: "#20C997" }}>Weather: {weatherData.weather[0].description}</p>
-            <p style={{ color: "#FFFFFF" }}>Visibility: {weatherData.visibility}</p>
-            <p style={{ color: "#A4D4AE" }}>Humidity: {weatherData.main.humidity}</p>
-            <p style={{ color: "#D3D3D3" }}>Pressure: {weatherData.main.pressure}</p>
-            
-          </div>
+            <p style={{ color: "#000000", fontSize: 25}}>Temperature: {weatherData.main.temp}°C</p>
+            <p style={{ color:" #FFB347", fontSize: 25 }}>Visibility: {weatherData.visibility}</p>
+            <p style={{ color: "#A4D4AE", fontSize: 25 }}>Humidity: {weatherData.main.humidity}</p>
+            <p style={{ color: "#D3D3D3", fontSize: 25 }}>Pressure: {weatherData.main.pressure}</p>
+            <p style={{ color: "#FFFFFF", fontSize: 25 }}>Country: {weatherData.sys.country}</p>
+              
+            <WeatherImage weatherCondition={weatherData.weather[0].main.toLowerCase()}/>
+
+            <p style={{ color: "#20C997", fontSize: 25 }}>Weather: {weatherData.weather[0].description}</p>
+            </div>
           
         )}
-        {error && <p style={{ color: '#FF6B6B', fontSize: 25 }}> Error: {error.message} </p>}
+        {error && <p style={{ color: '#FF6B6B', fontSize: 50, alignItems: "center" }}> Error: {error.message} </p>}
 
         
       </main>
+      </div>
       </div>
 
       </>
