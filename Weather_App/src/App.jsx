@@ -4,10 +4,6 @@ import './App.css'
 import { weatherToImg } from './WeatherImage';
 
 
-
-
-
-
 function App() {
 
   const [city, setCity] = useState('');
