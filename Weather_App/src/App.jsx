@@ -48,19 +48,6 @@ function App() {
         console.error(err);
       });
   };
-
-
-  // const weatherImages = {
-  //   clearsky2: 'path/to/clearsky2-image.png',
-  //   rain: 'path/to/rain-image.png',
-  //   overcastclouds: 'path/to/overcastclouds-image.g',
-  //   brokenclouds: 'path/to/brokenclouds-image.png',
-  //   fewclouds: 'path/to/fewclouds-image.png',
-  //   scatteredclouds: 'path/to/scatteredClouds-image.png',
-  //   mist: 'path/to/mist-image.png',
-  //   showerrain: 'path/to/showerrain-image.png',
-  //   thunderstorm: 'path/to/thunderstorm-image.png',
-  // };
   
   const WeatherImage = ({ weatherCondition }) => {
     const weatherType = weatherCondition.toLowerCase().replace(/\s/g, '');
