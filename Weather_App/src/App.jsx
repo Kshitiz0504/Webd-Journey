@@ -3,15 +3,11 @@ import { useState, useEffect } from 'react'
 import './App.css'
 import { weatherToImg } from './WeatherImage';
 
-
 function App() {
 
   const [city, setCity] = useState('');
   const [weatherData, setWeatherData] = useState(null);
   const[error, setError] = useState(null);
-
-  
-  
 
   const Weather = () => {
     if (!weatherData) return null;
