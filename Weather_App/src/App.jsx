@@ -27,7 +27,6 @@ function App() {
     console.log(weatherToImg)
   }, []);
 
-
   const fetchWeather = () => {
     const API_KEY = '82a11b043c133b03bed02933c669fa91';
     if (!city) return;
