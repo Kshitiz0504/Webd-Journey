@@ -10,6 +10,25 @@ function App() {
   const [weatherData, setWeatherData] = useState(null);
   const [error, setError] = useState(null);
 
+
+  const Weather = () => {
+    if (!weatherData) return null;
+  
+    const weatherCondition = weatherData.weather[0].description.toLowerCase();
+  
+    return (
+      <div>
+        <h1>Current Weather: {weatherCondition}</h1>
+        <WeatherImage weatherCondition={weatherCondition} />
+      </div>
+    );
+  };
+
+  useEffect(() => {
+    fetchWeather();
+    console.log(weatherToImg)
+  }, []);
+
   const fetchWeather = () => {
     const API_KEY = '82a11b043c133b03bed02933c669fa91';
     if (!city) return;
@@ -34,6 +53,7 @@ function App() {
     console.log(weatherToImg)
   }, []);
 
+  
   const WeatherImage = ({ weatherCondition }) => {
     const weatherType = weatherCondition.toLowerCase().replace(/\s/g, '');
     const imagePath = weatherToImg[weatherType];
