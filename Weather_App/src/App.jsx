@@ -68,21 +68,25 @@ function App() {
       </div>
     );
   };
+  console.log(weatherToImg[weatherData?.weather[0]?.description.replace(" ","")]);
+  
 
   return (
     <>
       <div
         style={{
-          backgroundImage: 'url("https://github.com/Gaurav-99/Weather-Mini/blob/main/public/img/weatherbg.jpg?raw=true")',
+          backgroundImage: `url(${weatherToImg[weatherData?.weather[0]?.description.replace(" ","")]})`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat',
+          opacity: 5,
+          backgroundColor: "  #4F959D",
           height: '105vh',
           width: '100vw',
           position: 'absolute',
+          filter: "blur(3px)",
           top: 0,
           left: 0,
-          filter: "blur(5px)",
           zIndex: -1,
         }}
       />
@@ -154,27 +158,25 @@ function App() {
 
         {weatherData && (
           <div style={{
-            backgroundImage: 'url("https://github.com/Gaurav-99/Weather-Mini/blob/main/public/img/weatherbg.jpg?raw=true")',
-            backgroundPosition: 'center',
-            backgroundRepeat: 'no-repeat',
+        
             marginTop: 40,
-            backgroundColor: "rgba(16, 135, 186, 0.8)",
+            backgroundColor: "#7886C7",           
             padding: "20px",
             borderRadius: 10,
             boxShadow: "0 10px 20px rgba(0,0,0,0.1)",
-            textAlign: "center",
+            textAlign: "left",
             maxWidth: 600,
             fontFamily: "Roboto, sans-serif",
             color: "#1E1F2F"
           }}>
             <h2 style={{ color: "brown", fontSize: 36 }}>{weatherData.name}, {weatherData.sys.country}</h2>
             <br/>
-            <p style={{ fontSize: 24, color: "red" }}>🌡 Temperature: {weatherData.main.temp}°C</p>
-            <p style={{ fontSize: 24, color: "blue" }}>💧 Humidity: {weatherData.main.humidity}%</p>
+            <p style={{ fontSize: 24 }}>🌡 Temperature: {weatherData.main.temp}°C</p>
+            <p style={{ fontSize: 24 }}>💧 Humidity: {weatherData.main.humidity}%</p>
            
-            <p style={{ fontSize: 24, color: "#410445"}}>🧭 Pressure: {weatherData.main.pressure} HPa</p>
-            <p style={{ fontSize: 24, color:"#18230F" }}>🌤 Weather: {weatherData.weather[0].description}</p>
-            <div style={{ marginTop: 20 }}>
+            <p style={{ fontSize: 24 }}>🧭 Pressure: {weatherData.main.pressure} HPa</p>
+            <p style={{ fontSize: 24 }}>🌤 Weather: {weatherData.weather[0].description}</p>
+            <div style={{ marginTop: 20, display: "flex", alignItems: "center", justifyContent: "center" }}>
               <WeatherImage weatherCondition={weatherData.weather[0].description} />
             </div>
           </div>
@@ -197,4 +199,6 @@ function App() {
 }
 
 export default App;
+
+
 
