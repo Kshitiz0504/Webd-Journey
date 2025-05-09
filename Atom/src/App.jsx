@@ -9,6 +9,7 @@ function App() {
   </RecoilRoot>
 }
 
+
 function MainApp() {
 
   const networkNotificationCount = useRecoilValue(networkAtom);
@@ -21,8 +22,6 @@ function MainApp() {
   const messagingAtomCount = useRecoilValue(messagingAtom);
 
   const totalNotificationCount = useRecoilValue(totalNotificationSelector);
-  
- 
 
   return (
     <>
