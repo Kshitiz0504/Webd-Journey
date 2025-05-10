@@ -1,6 +1,4 @@
 import { useState } from 'react'
-import { Button } from './components/Buttons'
-import { Input } from './components/Input'
 import { Otp } from './components/Otp'
 import './App.css'
 
