@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import './Index.css'
+import './index.css'
 import Navbar from './components/Navbar/Navbar'
 import { Routes, Route } from 'react-router-dom'
 import Coin from './pages/Coin/Coin'
