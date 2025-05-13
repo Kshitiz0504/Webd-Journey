@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+    <script>
+        function onButtonPress(){
+            const currentValue = document.getElementById("btn").innerHTML;   // Counter 16
+            console.log(currentValue.split(" "))     // Splits into array
+            const currentCounter = currentValue.split(" ")[1];   // This splits the currentValue in an Array
+            // aur ussi array ka [1] element i.e 16 gets stored in currentCounter
+            const newCounter = parseInt(currentCounter) + 1;   // Here we are converting the string into number then adding one
+            // so 16 becomes 17 or the counter goes up by one
+            document.getElementById("btn").innerHTML = "Counter " + newCounter;   // Updating the value of counter i.e "Counter 17" is the output
+        }
+    </script>
+
+<body>
+    <button onClick="onButtonPress()" id="btn">Counter 0</button>
+</body>
+</html>
