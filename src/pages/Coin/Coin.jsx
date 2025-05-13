@@ -13,29 +13,25 @@ const Coin = () => {
     const {currency} = useContext(CoinContext);
 
     const fetchCoinData = async () => {
-        const options = {
-            method: 'GET',
-            headers: {accept: 'application/json', 'x-cg-api-key': 'CG-aW1eawdinNohwYMA2VT7y74M'}
-          };
-          
-          fetch(`https://api.coingecko.com/api/v3/coins/${coinId}`, options)
-            .then(response => response.json())
-            .then(response => setCoinData(response))
-            .catch(err => console.error(err));
-
-    }
-
-    const fetchHistoricalData = async() => {
-        const options = {
-            method: 'GET',
-            headers: {accept: 'application/json', 'x-cg-api-key': 'CG-aW1eawdinNohwYMA2VT7y74M'}
-          };
-          
-          fetch(`https://api.coingecko.com/api/v3/coins/${coinId}/market_chart?vs_currency=${currency.name}&days=10&interval=daily`, options)
-            .then(response => response.json())
-            .then(response => setHistoricalData(response))
-            .catch(err => console.error(err));
-    }
+        try {
+          const response = await fetch(`/api/coinData?coinId=${coinId}`);
+          const data = await response.json();
+          setCoinData(data);
+        } catch (err) {
+          console.error('Error fetching coin data:', err);
+        }
+      };
+      
+      const fetchHistoricalData = async () => {
+        try {
+          const response = await fetch(`/api/historicalData?coinId=${coinId}&currency=${currency.name}`);
+          const data = await response.json();
+          setHistoricalData(data);
+        } catch (err) {
+          console.error('Error fetching historical data:', err);
+        }
+      };
+      
 
     useEffect(()=>{
         fetchCoinData();
