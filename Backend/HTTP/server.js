@@ -89,7 +89,7 @@
 // MiddleWares ->
 // -> It can modify the request
 // -> It can cancel the request
-// -> It 
+// -> It calls the next function
 
 const express = require("express")
 
