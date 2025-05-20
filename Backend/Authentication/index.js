@@ -72,7 +72,38 @@ app.post("/signin", function (req, res) {
     //     }
     // })
 
+
+
 })
+
+// If we want to get our data after we signed in
+// We need to send the token generated after signing in, in the headers
+
+app.get("/me", function (req, res) {
+    const token = req.headers.token
+    let foundUser = null;
+
+    for(let i=0; i<users.length; i++) {
+        if(users[i].token == token) {
+            foundUser = users[i]
+        }
+    }
+
+    if (foundUser) {
+        res.json({
+            username: foundUser.username,
+            password: foundUser.password
+        })
+    } else{
+        res.json({
+            message: "Token invalid"
+        })
+    }
+
+
+})
+
+
 
 app.listen(3000);
 
