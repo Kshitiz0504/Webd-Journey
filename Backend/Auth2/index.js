@@ -3,13 +3,23 @@
 
 const express = require("express");
 const jwt = require("jsonwebtoken");
+const cors = require("cors")
 
 const JWT_SECRET = "harkirat123";
 
 const app = express();
 app.use(express.json());
-
+app.use(cors());
 const users = [];
+
+app.get('/check', (req, res)=>{
+    res.send("The server is running")
+})
+
+// localhost: 3000
+app.get("/", function (req, res) {
+    res.sendFile(__dirname + "/public/index.html");
+})
 
 app.post("/signup", function (req, res) {
     const username = req.body.username;
@@ -92,5 +102,7 @@ app.get("/me", auth, function (req, res) {
         })
     })
 
-app.listen(3000)
+app.listen(3000, ()=>{
+    console.log("THe server is running on port 3000")
+})
 
