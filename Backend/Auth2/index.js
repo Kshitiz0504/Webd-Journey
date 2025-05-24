@@ -17,6 +17,7 @@ app.get('/check', (req, res)=>{
 })
 
 // localhost: 3000
+// here we are trying to access the frontend file by sending the folder name to the backend server
 app.get("/", function (req, res) {
     res.sendFile(__dirname + "/public/index.html");
 })
