@@ -45,9 +45,7 @@ function App() {
       });
   };
 
-  const backgroundImage = weatherData
-    ? weatherToImg[weatherData.weather[0].description.toLowerCase().replace(/\s/g, '')]
-    : '';
+  const backgroundImage = weatherData ? weatherToImg[weatherData.weather[0].description.toLowerCase().replace(/\s/g, '')] : '';
 
   return (
     <>
