@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route, Link, Outlet } from "react-router-dom"
 
 function App() {
   return <div>
+    // Setting the required routes 
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Layout />} />
