@@ -95,7 +95,6 @@ function Layout() {
 </div>
 
 
-
     <div style={{ 
       display: "flex", 
       flexWrap: "wrap", 
@@ -105,10 +104,10 @@ function Layout() {
       padding: 30 
     }}>
       <div>
-      <p>Discover the perfect Online Learning Platform </p>
+      <p> Discover the perfect Online Learning Platform </p>
 
       
-    <div style={{display: "flex", flexDirection: "row", gap: 20}}>
+    <div style={{ display: "flex", flexDirection: "row", gap: 20 }}>
     <div style={{ maxWidth: 250, width: "100%", textAlign: "center" }}>
       JEE <br />
       <img 
