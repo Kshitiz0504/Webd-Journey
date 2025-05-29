@@ -2,8 +2,6 @@
 // useRef -> 1.) Focusing on an Input Box
 //           2.) reference to a value , such that when you change the value, the component Doesnot re-render
 
-
-
   // 1.
   // import { useRef, useState } from 'react'
   // import './App.css'
@@ -25,7 +23,6 @@
   // }
 
   // export default App
-
 
   // 2.
   import { useRef, useState } from 'react'
@@ -55,9 +52,7 @@
       </div>
     }
 
-
     export default App
-
 
 // ErrorBoundary
 
@@ -138,6 +133,5 @@
 //     {children}
 //     </div>
 // }
-
 
 // export default App
