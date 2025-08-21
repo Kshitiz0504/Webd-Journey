@@ -45,7 +45,7 @@ app.get("/ride1", isOldEnoughMiddleWare, function (req, res) {
 
 app.listen(3000);
 
-// Using this way, we can do the job if we dont using MiddleWare
+// Using this way, we can do the job if we are not using MiddleWare
 
 // app.get("/ride1", function(req, res) {
 //     if (isOldEnough(req.query.age)) {
