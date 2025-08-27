@@ -1,3 +1,4 @@
+// better use of Components and other things
 
 import { useState, useEffect } from "react";
 
