@@ -1,3 +1,9 @@
+// Single Page Applications -> Ek se dusre link pe jane 
+// ke tym koi loader na aaya
+// mtlb pura HTML mt change ho just kch part change ho
+// or easy way me bole to har page pe jate tym network tab 
+// me baar baar pura HTML file reload na ho
+// Anchor tab use krskte h but vo pure page to reload/refetch krega
 
 import './App.css'
 import { BrowserRouter, Routes, Route, Link, useNavigate, Outlet } from "react-router-dom";
