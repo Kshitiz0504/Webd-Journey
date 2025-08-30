@@ -1,14 +1,22 @@
+// Creating A Custom Hook ->
+// Start with a 'use' Prefix
+// and it should use another Hook
+
 // import { useState } from 'react'
 // import './App.css'
 
 
-// // custom hook
+// // custom hook -> Basically a function that starts with a use
+// and uses another hook and then returns some value 
+// which changes as per the logic
+
 // function useCounter() {
 //   const [count, setCount] = useState(0);
 
 //   function increaseCount() {
 //     setCount(count + 1);
 //   }
+
 //   return {
 //     count: count,
 //     increaseCount: increaseCount
@@ -31,7 +39,7 @@
 // export default App
 
 
- // Some of the Custom Hooks
+ // Some of the Custom Hooks ->
  // 1.) useFetch -> It is used to fetch the urls
 
 
@@ -118,7 +126,9 @@
 
 // export default App; 
 
-// 3.) useDebounce
+// 3.) useDebounce -> Sending too much request to the backend is a bad practice
+// eg. while using amazon if we are trying to search anything and keep on typing continuosly and very quickly
+// it waits for some tym and let us complete typing and then shows the results
 
 // a.
 

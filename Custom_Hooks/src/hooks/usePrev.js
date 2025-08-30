@@ -1,7 +1,13 @@
-import { useEffect, useRef, useState } from "react"
+import { useEffect, useRef } from "react"
 
 export const usePrev = (value) => {
-    const ref = useRef();
+    const ref = useRef();  
+    // refs let us store a value in a variable 
+    // and whenever that value changes, the component
+    // doesnot re-render
+    // When we use a useRef hook, the ref can be used to store a value
+    // and if we keep on updating that value for many times
+    // it will not re-render the component
 
     useEffect(() => {
         ref.current = value;    // 0
@@ -11,4 +17,4 @@ export const usePrev = (value) => {
 }
 
 // react returns first, effect gets called later
-// yaha suppose useRef me 1 vaalue daale 
+// yaha suppose useRef me 1 value daale 
