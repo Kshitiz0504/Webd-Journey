@@ -63,9 +63,9 @@
 // Selectors
 
 
-import { RecoilRoot, atom, useRecoilValue, useSetRecoilState } from 'recoil';
+import { RecoilRoot, useRecoilValue, useSetRecoilState } from 'recoil';
 import { counterAtom, evenSelector  } from './store/atoms/counter';
-import { useEffect, useState, memo } from 'react'
+// import { useEffect, useState, memo } from 'react'
 import './App.css'
 
 function App() {
