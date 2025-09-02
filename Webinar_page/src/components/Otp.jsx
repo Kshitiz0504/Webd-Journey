@@ -1,54 +1,60 @@
 import { Button } from "./Buttons";
 import { useRef, useState } from "react";
 
-// 1, 2, 3, 6, 10
 export function Otp({ number }) {
-    const ref = useRef(Array(number).fill(0));
-    const [values, setValues] = useState(Array(number).fill(""))
+  const ref = useRef([]);
+  const [values, setValues] = useState(Array(number).fill(""));
 
-    const [disabled, setDisabled] = useState(true);
+  const disabled = values.some((v) => v === ""); // button disabled until all filled
 
-    return <div className="flex justify-center">
-        
-        {Array(number).fill(0).map((x, index) => <SubOtpBox reference={e => ref.current[index] = e} key={index} onDone={() => {
-            
-            if (index + 1 >= number) {
-                return
-            }
-            ref.current[index + 1].focus();
-        }} goBack={() => {
-            if (index == 0) {
-                return
-            }
-            ref.current[index - 1].focus();
-        }} />)}
+  const handleChange = (val, index) => {
+    if (/^[0-9]$/.test(val)) {
+      const newValues = [...values];
+      newValues[index] = val;
+      setValues(newValues);
 
-        <br />
-        <Button disabled={disabled}>Sign up</Button>
+      if (index < number - 1) {
+        ref.current[index + 1].focus();
+      }
+    }
+  };
+
+  const handleBackspace = (index) => {
+    if (values[index] === "" && index > 0) {
+      ref.current[index - 1].focus();
+    }
+  };
+
+  return (
+    <div className="flex flex-col items-center">
+      <div className="flex justify-center">
+        {Array(number)
+          .fill(0)
+          .map((_, index) => (
+            <input
+              key={index}
+              ref={(el) => (ref.current[index] = el)}
+              type="text"
+              maxLength={1}
+              value={values[index]}
+              className="m-1 w-[40px] h-[50px] rounded-xl bg-blue-500 outline-none px-4 text-white text-center text-xl"
+              onChange={(e) => handleChange(e.target.value, index)}
+              onKeyDown={(e) => {
+                if (e.key === "Backspace") {
+                  handleBackspace(index);
+                  setValues((prev) => {
+                    const newVals = [...prev];
+                    newVals[index] = "";
+                    return newVals;
+                  });
+                }
+              }}
+            />
+          ))}
+      </div>
+
+      <br />
+      <Button disabled={disabled}>Sign up</Button>
     </div>
+  );
 }
-
-function SubOtpBox({
-    reference, onDone, goBack
-}) {
-    const [inputBoxVal, setInputBoxVal] = useState("");
-
-    return <div>
-        <input value={inputBoxVal} ref={reference} onKeyUp={(e) => {
-            if (e.key == "Backspace") {
-                goBack()
-            }
-        }} onChange={(e) => {
-            const val = e.target.value
-
-            if (val == "1" || val == "2" || val == "3" || val == "4" || val == "5" || val == "6" || val == "7" || val == "8" || val  == "9") {
-                setInputBoxVal(val);
-                onDone()
-            } else {
-
-            }
-        }} type="text" className="m-1 w-[40px] h-[50px] rounded-xl bg-blue-500 outline-none px-4 text-white"></input>
-    </div>
-}
-
-

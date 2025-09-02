@@ -2,7 +2,7 @@ export const Button = ({
     disabled,
     children,
     onClick,
-    variant   // sm, lg
+    
 }) => {
     
     // clsx, cx
