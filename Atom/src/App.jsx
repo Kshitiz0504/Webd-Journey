@@ -1,3 +1,4 @@
+// Learning Recoil and Atoms are part of it
 
 import { RecoilRoot, useRecoilValue } from "recoil"
 import{ jobsAtom, notificationsAtom, messagingAtom, networkAtom, totalNotificationSelector } from './atoms'
