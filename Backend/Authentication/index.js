@@ -7,6 +7,7 @@ app.use(express.json());   // express.json() middlewaere will help us parse any 
 const users = [];
 
 function generateToken() {
+    // It should return a random long string => token
     let options = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
 
     let token = "";
@@ -15,7 +16,10 @@ function generateToken() {
         // we just want to generate a random long string
         token += options[Math.floor(Math.random() * options.length)];
     }
-    return token;
+    return token;   
+    // options[Math.floor(Math.random() * options.length)] => Math,random() gives something between 0 & 1
+    // Math.random() * options.length => between 0 to no.of characters
+    // Math.floor() => 11.4 = 11
 }
 
 app.post("/signup", function (req, res) {
@@ -25,7 +29,7 @@ app.post("/signup", function (req, res) {
     users.push({
         username: username,
         password: password
-    })
+    })            // here we are storing the in an array, later we'll store it in database
 
     res.json({
         message: "You are signed up"
