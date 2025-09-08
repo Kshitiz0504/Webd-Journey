@@ -1,5 +1,9 @@
-// JWT can be decoded by anyone using the JWT_SECRET
-// But it can only be verified by me
+// JWT can be decoded by anyone 
+// But it can only be verified by me using the JWT_SECRET
+// The token we are getting from here is put in jwt.io and can be decrypted 
+// The thing that can be decrypted is that which is passed along with JWT
+// But any other thing such as password cant be decrypted without the JWT_SECRET
+// isilye password ni pass krte mainly username krte h kuki vo decode ho bhi gya to koi dikat ni hogi 
 
 const express = require("express");
 const jwt = require("jsonwebtoken");
@@ -59,7 +63,7 @@ app.post("/signin", function (req, res) {
         return 
     } else{
         const token = jwt.sign({
-            username
+            username         // what data we need to send, username krskte h dont put password
         }, JWT_SECRET);
 
         res.json({
@@ -104,6 +108,6 @@ app.get("/me", auth, function (req, res) {
     })
 
 app.listen(3000, ()=>{
-    console.log("THe server is running on port 3000")
+    console.log("The server is running on port 3000")
 })
 
