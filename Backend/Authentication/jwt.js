@@ -5,6 +5,7 @@
 // isse better h to use JWTs -> JSON Web Tokens
 // npm install jsonwebtoken -> require it
 // This is the way to use jsonwebtoken
+// It can be decoded by anyone but cant be verified because SECRET is unknown
 // In this when we hit the sign in endpoint we ge a very long JWT,
 // and when we hit the /me endpoint we send the JWT along with it
 // that JWT gets decoded and we still have to hit the database to get the other infos like password or anything
