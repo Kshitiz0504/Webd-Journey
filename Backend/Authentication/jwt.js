@@ -14,7 +14,8 @@
 // Changes in code with JWT's and without JWT's
 // With JWT's -> 1.) /signin endpoint me change how the toen has been generated, we dont store the token in database
 // 2.) /me endpoint me rather than checking the database/ global variable, we decode the username from the JWT ans then in database we check if there is a user of such username
-// If yes, return the details of username
+// If yes, return the details of username it will not display password
+
 
 
 const express = require("express");
