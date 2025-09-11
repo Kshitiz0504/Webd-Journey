@@ -49,7 +49,7 @@ const Greeting = ({ name }) => {
 };
 
 function ToggleMessage() {
-  const [isVisible, setIsVisible] = useState(false);
+  const [isVisible, setIsVisible] = useState(false);   // [false, function]
   return (
     <div>
       <button onClick={() => setIsVisible(!isVisible)}>Toggle Message</button>
