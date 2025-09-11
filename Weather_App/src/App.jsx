@@ -1,5 +1,4 @@
 
-
 import { useState } from 'react';
 import './App.css';
 import { weatherToImg } from './WeatherImage';
@@ -71,6 +70,7 @@ function App() {
       )}
 
       <div style={{
+        background: "linear-gradient(135deg, #00c6ff, #0072ff)",
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
@@ -82,7 +82,7 @@ function App() {
         <h1 style={{
           fontSize: 60,
           fontWeight: "800",
-          color: "#0D3B66",
+          color: "#03213e8b",
           textAlign: "center",
         }}>
           Weather Forecast
@@ -105,7 +105,7 @@ function App() {
               borderRadius: 10,
               border: "1px solid #20C997",
               fontFamily: "Roboto, sans-serif",
-              color: "#333",
+              color: "#333333ff",
               backgroundColor: "#F2F4F8",
               width: 300,
               textAlign: "center",
