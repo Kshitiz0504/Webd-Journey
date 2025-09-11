@@ -63,7 +63,7 @@ app.post("/signin", function (req, res) {
         return 
     } else{
         const token = jwt.sign({
-            username         // what data we need to send, username krskte h dont put password
+            username : foundUser.username        // what data we need to send, username krskte h dont put password
         }, JWT_SECRET);
 
         res.json({
