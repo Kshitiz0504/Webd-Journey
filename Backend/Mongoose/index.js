@@ -2,11 +2,13 @@ const express = require("express");
 
 const { UserModel, TodoModel } = require("./db");   // importing from db file
 
+require(".env").config();
+
 const jwt = require("jsonwebtoken");
-const JWT_SECRET = "asdasd123@123";
+const JWT_SECRET = process.env.JWT_SECRET;
 
 const mongoose = require("mongoose");
-mongoose.connect("mongodb+srv://KshitizShukla:kshitiz%4005@cluster0.veazpi0.mongodb.net/todo-harkirat-2222")     // password me @ -> %40
+mongoose.connect(process.env.MONGO_URI);                  // password me @ -> %40
 
 const app = express();
 app.use(express.json());
