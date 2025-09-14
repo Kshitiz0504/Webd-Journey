@@ -1,32 +1,12 @@
 const express = require("express");
+const { userRouter } = require("./routes/user");
+const { adminRouter } = require("./routes/admin");
+const { courseRouter } = require("./routes/course");
 const app = express();
 
-const mongoose = require("mongoose");
-mongoose.connect(process.env.MONGO_URI);
-
-const jwt = require("jsonwebtoken");
-const JWT_SECRET = process.env.JWT_SECRET;
-
-app.post("/user/signup", async function(req, res) {
-
-})
-
-app.post("/user/login", async function(req, res) {
-
-})
-
-app.get("/user/purchases", function(req, res) {
-
-})
-
-app.post("/course/purchase", function(req, res) {
-
-})
-
-app.get("/courses", function(req, res) {
-
-})
-
+app.use("/user", userRouter);
+app.use("/admin", adminRouter);
+app.use("/course", courseRouter);
 
 
 app.listen(3000);
