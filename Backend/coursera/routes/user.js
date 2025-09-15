@@ -4,8 +4,6 @@ const { UserModel } = require("../db");
 const { z } = require("zod");
 const bcrypt  = require("bcrypt");
 
-
-
 const userRouter = Router();
 
 userRouter.post("/signup", async function (req, res) {
@@ -78,7 +76,7 @@ userRouter.post("/signin", async function (req, res) {
     if(passwordMatch) {
         const token = jwt.sign({
             id: response._id.toString()         // DB me _id hai to usse credentials lenge -> ObjectId type ka h to convert into string
-        }, process.env.JWT_SECRET);
+        }, process.env.JWT_USER_SECRET);
         res.json({
             token: token
         });
