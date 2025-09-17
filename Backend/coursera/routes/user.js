@@ -3,6 +3,7 @@ const jwt = require("jsonwebtoken");
 const { UserModel } = require("../db");
 const { z } = require("zod");
 const bcrypt  = require("bcrypt");
+const { userMiddleware } = require("../middleware/user")
 
 const userRouter = Router();
 
@@ -88,7 +89,7 @@ userRouter.post("/signin", async function (req, res) {
     }
 })
 
-userRouter.get("/purchases", function (req, res) {
+userRouter.get("/purchases", userMiddleware, function (req, res) {
     res.json({
         message: "purchases"
     })

@@ -2,7 +2,7 @@ const jwt = require("jsonwebtoken");
 
 function adminMiddleware(req, res, next) {
     const token = req.headers.token;
-    const decoded = jwt.verify(token, env.process.JWT_ADMIN_SECRET);
+    const decoded = jwt.verify(token, process.env.JWT_ADMIN_SECRET);
 
     if(decoded) {
         req.userId = decoded.id;
@@ -10,7 +10,7 @@ function adminMiddleware(req, res, next) {
     }
     else{
         res.status(403).json({
-            message: "You are signed in"
+            message: "You are not signed in"
         })
     }
 }
