@@ -51,7 +51,7 @@ app.post("/signup", async function(req, res) {
 
     // const parsedData = requiredBody.parse(req.body);
     // parse without safe returns data if everything is correct or throws an error
-    // whereas safeParse asafely parses it, doesnot throws an error, gives us a success field in the object
+    // whereas safeParse safely parses it, doesnot throws an error, gives us a success field in the object
     // that we can check upon, and if is not true we can send error msgs
     // Better to use safeParse
     const parsedDataWithSuccess = requiredBody.safeParse(req.body);
@@ -61,7 +61,7 @@ app.post("/signup", async function(req, res) {
             message: "Incorrect format",
             error: parsedDataWithSuccess.error    // tells what exactly is the error such as password must contain special character etc.
         })
-        return 
+        return ;
     }
 
     const email = req.body.email;     // string
@@ -152,7 +152,6 @@ app.post("/signin", async function(req, res) {
             message: "Incorrect Credentials"
         })
     }
-
 
 })
 
