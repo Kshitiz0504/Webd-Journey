@@ -91,59 +91,64 @@ adminRouter.post("/signin", async function (req, res) {
 })
 
 adminRouter.post("/course",  adminMiddleware, async function (req, res) {
-    const adminId = req.userId;
 
-    const { title, description, imageURL, price } = req.body;
+    try {
+        const adminId = req.adminId;
 
-    const course = await CourseModel.create({
-        title: title, 
-        description: description, 
-        imageURL: imageURL, 
-        price: price, 
-        creatorId: adminId
-    })
+        const title = req.body.title;
+        const description = req.body.description;
+        const price = req.body.price;
+        const imageURL = req.body.imageURL;
 
-    res.json({
-        message: "Course created",
-        courseId: course._id
-    })
+        const coursesCreated = await CourseModel.create({
+            title : title,
+            description: description,
+            price: price,
+            imageURL: imageURL,
+            creatorId: adminId
+        })
+
+        res.json({
+            message: "Course created",
+            coursesCreated
+        })
+    }
+    catch (err) {
+        res.status(500).json({ 
+            message: "Failed to create course", details: err.message 
+        });
+    }
 })
 
 adminRouter.put("/course/:courseId", adminMiddleware, async function (req, res) {
-    const adminId = req.userId;
-    const { courseId } = req.params;
+    const title = req.body.title;
+    const description = req.body.description;
+    const price = req.body.price;
+    const imageURL = req.body.imageURL;
+    const courseId = req.params.courseId;
 
-    const { title, description, imageURL, price } = req.body;
+    try {
+        const updated = await CourseModel.findByIdAndUpdate(
+            courseId,
+            { title: title,
+            description: description,
+            price: price,
+            imageURL: imageURL },
+            { new: true }
+        )
 
-    const course = await AdminModel.updateOne({
-        _id: course._id,
-        creatorId: adminId
-    }, {
-        title: title,
-        description: description,
-        imageURL: imageURL,
-        price: price,
-        creatorId: adminId
-    })
-
-    res.json({
-        message: "Course updated",
-        courseId: course._id
-    })
+            res.json({
+                message: "Course updated",
+                updated
+            })
+    }
+    catch(err) {
+        res.status(500).json({
+            message: "Failed to modify course",
+            details: err.message
+        })
+    }
     
-})
-
-adminRouter.get("/course/bulk", adminMiddleware, async function (req, res) {
-    const adminId = req.userId;
-
-    const courses = await CourseModel.find({
-        creatorId: adminId
-    });
-
-    res.json({
-        message: "Course updated",
-        courses
-    })
 })
 
 module.exports = {

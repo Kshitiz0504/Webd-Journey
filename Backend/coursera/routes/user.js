@@ -89,11 +89,36 @@ userRouter.post("/signin", async function (req, res) {
     }
 })
 
-userRouter.get("/purchases", userMiddleware, function (req, res) {
-    res.json({
-        message: "purchases"
-    })
+userRouter.get("/purchases", userMiddleware, async function (req, res) {
+
+    try{
+    
+        const userId = req.userId;
+        console.log("UserId: " , userId)
+
+        const purchases = await PurchaseModel.find({
+            userId
+        })
+
+        if(purchases.length === 0) {
+            return res.json({
+                message: "You have not yet purchased anything"
+            })
+        }
+
+        res.status(200).json({
+            message: "purchases found",
+            purchases
+        })
+    }
+    catch (err) {
+        res.status(403).json({
+            message: "Error loading purchases",
+            details: err.message
+        })
+    }
 })
+
 
 module.exports = {
     userRouter: userRouter
