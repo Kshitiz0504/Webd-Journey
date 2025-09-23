@@ -72,6 +72,7 @@ app.post("/signup", async function(req, res) {
         console.log(hashedPassword);
 
         // UserModel.create({}) -> Asycnhronous function calll -> will return a promise
+
         await UserModel.create({    // inserting UserModel in the database
             email: email,
             password: hashedPassword,
@@ -79,7 +80,7 @@ app.post("/signup", async function(req, res) {
         });
 
         res.json({
-            message: "You are signed up"
+            message: "You are signed up",
         })
 
     // Used try catch
