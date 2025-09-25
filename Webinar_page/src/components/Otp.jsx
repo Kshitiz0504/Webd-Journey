@@ -6,7 +6,7 @@ export function Otp({ number }) {
   const [values, setValues] = useState(Array(number).fill(""));
 
   const disabled = values.some((v) => v === ""); // button disabled until all filled
-
+  // Creating an otp component using REFs
   const handleChange = (val, index) => {
     if (/^[0-9]$/.test(val)) {
       const newValues = [...values];
