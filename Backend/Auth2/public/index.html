@@ -1,0 +1,47 @@
+<!-- To connect backend to frontend we can use axios or fetch , give the url to frontend that we are using in backend -->
+ <!-- Also in backend also we need to give the folder information at the desired position -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Auth Website </title>
+</head>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.7.6/axios.min.js"></script>
+<script>
+    // Sign Up function -> access the values then use axios
+    async function signup() {
+        const username = document.getElementById("signup-username").value;
+        const password = document.getElementById("signup-password").value;
+
+        await axios.post("http://localhost:3000/signup", {
+            username: username,
+            password: password
+        });
+        alert("You are signed up");
+    }
+</script>
+
+<body>
+    <div>
+        SignUp
+        <input id="signup-username" type="text" name="username" placeholder="Username">
+        <input id="signup-password" type="password" name="password" placeholder="Password">
+        <button onclick="signup()"> Submit </button>
+    </div>
+
+    <div>
+        Signin
+        <input type="text" name="username" placeholder="Username">
+        <input type="password" name="password" placeholder="Password">
+        <button onclick="signin()"> Submit </button>
+    </div>
+
+    <div>
+        User Information
+        <div id="information"></div>
+    </div>
+</body>
+</html>
